@@ -1,0 +1,32 @@
+CREATE DATABASE shortly;
+
+\c shortly;
+
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    passwoord TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    createdAt TIMESTAMP NOT NULL DEFAULT NOW() 
+);
+CREATE TABLE urls(
+    id SERIAL PRIMARY KEY,
+    userId INTEGER NOT NULL FOREIGN KEY REFERENCES "users"("id"),
+    url TEXT NOT NULL,
+    "shortUrl" TEXT NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT NOW() 
+);
+
+CREATE TABLE views(
+    id SERIAL PRIMARY KEY,
+    urlsId  INTEGER NOT NULL FOREIGN KEY REFERENCES "urls"("id"),
+    view INTEGER NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT NOW() 
+);
+
+CREATE TABLE sessions(
+    id SERIAL PRIMARY KEY,
+    token TEXT NOT NULL,
+    userId INTEGER NOT NULL FOREIGN KEY REFERENCES "users"("id")
+
+)
