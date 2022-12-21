@@ -13,6 +13,7 @@ export async function getUser(req, res) {
 
 export async function getRanking(req, res) {
   try {
+    res.status(200).send()
   } catch (err) {
     console.log(err);
   }
