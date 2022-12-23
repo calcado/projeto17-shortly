@@ -25,8 +25,7 @@ export async function tokenValidation (req,res,next){
         if(userExist.rows.length === 0){
             return res.sendStatus(401)
         }
-        console.log("aqui")
-        console.log(userId)
+       
         res.locals.user = userId;
         return next();
     })    
