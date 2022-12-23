@@ -45,13 +45,13 @@ export async function signInValidation(req, res, next) {
    
     
     if (user.rows.length === 0) {
-      return res.status(401).send("aqui");
+      return res.sendStatus(401);
     }
 
    
     const validation = bcrypt.compareSync(password, user.rows[0].password);
     if (!validation) {
-      return res.status(401).send("esse");
+      return res.sendStatus(401);
     }
 
     const  id  = user.rows[0].id;

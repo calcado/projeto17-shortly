@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.use(authRoute);
 app.use(urlsRoute);
+app.use(usersRoute);
 
 const port = process.env.PORT || 4000;
 app.listen(port, console.log(`Running in port ${port}`));

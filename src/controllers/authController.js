@@ -19,17 +19,14 @@ export async function postSignUp(req, res) {
 }
 
 export async function postSignIn(req, res) {
-  
-  const id =  res.locals.id 
-  console.log(id)
-  
- const dados = {userId : id}
+  const id = res.locals.id;
+
+  const dados = { userId: id };
   const key = process.env.JWT_SECRET;
-  console.log(key)
+
   const config = { expiresIn: 60 * 60 * 24 * 30 };
-  console.log(config)
+
   const token = jwt.sign(dados, key, config);
-  console.log(token)    
-  
+
   res.status(200).send(token);
- }
+}
