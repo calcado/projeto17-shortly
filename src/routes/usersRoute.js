@@ -1,5 +1,5 @@
 import {Router} from "express";
-
+import {getUser, getRanking} from "../controllers/usersController.js"
 const userRoute = Router();
 
 userRoute.get("/users/me", getUser);

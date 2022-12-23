@@ -1,4 +1,4 @@
-import { connection } from "../database/db";
+import { connection } from "../database/db.js";
 
 export async function getUser(req, res) {
   const token = req.headers;
@@ -12,7 +12,10 @@ export async function getUser(req, res) {
 }
 
 export async function getRanking(req, res) {
+  
   try {
+
+
     res.status(200).send()
   } catch (err) {
     console.log(err);

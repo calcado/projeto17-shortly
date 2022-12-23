@@ -5,6 +5,6 @@ import {signUpValidation, signInValidation} from "../middlewares/authValidationM
 const authRoute = Router();
 
 authRoute.post("/signup",signUpValidation, postSignUp);
-authRoute.post("/singin",signInValidation, postSignIn);
+authRoute.post("/signin",signInValidation, postSignIn);
 
 export default authRoute;
